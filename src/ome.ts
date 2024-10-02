@@ -121,7 +121,7 @@ export async function loadWell(
       info.imageSource = imgSource;
       config.onClick(info);
     } else if (imgSource) {
-      window.open(`${window.location.origin + window.location.pathname}?source=${imgSource}`);
+      window.open(`${window.location.origin + window.location.pathname}?source=${encodeURIComponent(imgSource)}`);
     }
   };
 
@@ -237,7 +237,7 @@ export async function loadPlate(
       info.imageSource = imgSource;
       config.onClick(info);
     } else if (imgSource) {
-      window.open(`${window.location.origin + window.location.pathname}?source=${imgSource}`);
+      window.open(`${window.location.origin + window.location.pathname}?source=${encodeURIComponent(imgSource)}`);
     }
   };
   return sourceData;

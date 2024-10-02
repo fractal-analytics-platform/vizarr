@@ -25,7 +25,7 @@ async function main() {
     debounce((update: vizarr.ViewState) => {
       const url = new URL(window.location.href);
       url.searchParams.set("viewState", JSON.stringify(update));
-      window.history.pushState({}, "", decodeURIComponent(url.href));
+      window.history.pushState({}, "", url.href);
     }, 200),
   );
 
@@ -41,7 +41,7 @@ async function main() {
   // Make sure the source URL is decoded.
   viewer.addImage(config);
 
-  const newLocation = decodeURIComponent(url.href);
+  const newLocation = url.href;
 
   // Only update history if the new loacation is different from the current
   if (window.location.href !== newLocation) {
